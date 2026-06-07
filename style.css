@@ -1,0 +1,141 @@
+:root {
+    --card-bg: rgba(255, 255, 255, 0.25);
+    --text-color: #2d3436;
+    --accent-color: #ffffff;
+    --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+}
+
+.dark-mode {
+    --card-bg: rgba(0, 0, 0, 0.4);
+    --text-color: #ffffff;
+    --accent-color: #00d2ff;
+    --shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: background 0.5s ease, color 0.5s ease;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.2); 
+    z-index: -1;
+}
+
+/* افکت ذرات */
+#tsparticles {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.container {
+    width: 100%;
+    max-width: 420px;
+    padding: 20px;
+    position: relative;
+    z-index: 10;
+}
+
+.theme-toggle {
+    position: absolute;
+    top: 30px; right: 30px;
+    width: 50px; height: 50px;
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center; align-items: center;
+    cursor: pointer;
+    color: var(--text-color);
+    border: 1px solid rgba(255,255,255,0.2);
+    z-index: 100;
+}
+
+.search-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.search-section input {
+    flex: 1;
+    padding: 15px;
+    border-radius: 15px;
+    border: none;
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    color: var(--text-color);
+    outline: none;
+}
+
+.search-section button {
+    width: 55px;
+    border-radius: 15px;
+    border: none;
+    background: var(--accent-color);
+    color: #2c3e50;
+    cursor: pointer;
+}
+
+.weather-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(15px);
+    border-radius: 30px;
+    padding: 40px 30px;
+    text-align: center;
+    color: var(--text-color);
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: var(--shadow);
+}
+
+.weather-icon-large {
+    font-size: 80px;
+    margin-bottom: 20px;
+}
+
+#temperature { font-size: 4rem; font-weight: 800; }
+
+.quote-box {
+    margin: 20px 0;
+    font-style: italic;
+    opacity: 0.8;
+}
+
+.extra-details {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.detail-item i { font-size: 1.5rem; color: var(--accent-color); margin-right: 5px; }
+
+/* انیمیشن‌ها */
+.fa-sun { color: #ffce54; animation: spin 10s linear infinite; }
+.fa-cloud { color: #ecf0f1; animation: drift 3s ease-in-out infinite; }
+.fa-snowflake { color: #ffffff; animation: pulse 2s infinite; }
+
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes drift { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(10px); } }
+@keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
